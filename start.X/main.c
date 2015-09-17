@@ -11,6 +11,9 @@
 _FOSC(CSW_FSCM_OFF & XT_PLL16); //oscillator at 16x PLL
 _FWDT(WDT_OFF); //watchdog timer is off
 
-void main() {
-
+int main() {
+    int i = 1;
+    for (i = 1; i >0; --i)
+        ;
+    return 0;
 }
