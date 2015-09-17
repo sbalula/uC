@@ -30,3 +30,13 @@
 
 # Debug files
 *.dSYM/
+
+#MPLAB
+*~
+*.d
+*.map
+*.xml
+*.mk
+*.bash
+*.properties
+Makefile
