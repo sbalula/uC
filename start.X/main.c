@@ -1,6 +1,6 @@
 //Bare minimum example
 
-#define FCY 4*7372800 		//instruction frequency in Hz
+#define FCY 4*7372800UL 		//instruction frequency in Hz
 
 #include <p30F4011.h>               //PIC device
 #include <libpic30.h>               //dsPIC30 library
