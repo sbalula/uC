@@ -1,0 +1,55 @@
+Disassembly Listing for assembly start
+Generated From:
+/home/samuel/Cloud/_Tecnico_/99_Microcontroladores/assembly start.X/dist/default/production/assembly_start.X.production.elf
+18-Sep-2015 11:58:03
+
+---  /home/samuel/Cloud/_Tecnico_/99_Microcontroladores/assembly start.X/function.s  --------------------
+                                                  1:       .text
+                                                  2:       .global _asmFunction
+                                                  3:     _asmFunction:
+0001BC  200000     MOV #0x0, W0                   4:       mov #0,w0
+0001BE  884000     MOV W0, 0x800                  5:       mov w0,_cVariable
+0001C0  060000     RETURN                         6:       return
+                                                  7:       .global _main
+                                                  8:     _main:
+0001C2  02019E     CALL 0x19E                     9:       call _foo
+0001C6  060000     RETURN                         10:      return 
+                                                  11:      .bss
+                                                  12:      .global _asmVariable
+                                                  13:      .align 2
+                                                  14:    _asmVariable: .space 2
+                                                  15:     .end
+                                                  16:     
+---  /home/samuel/Cloud/_Tecnico_/99_Microcontroladores/assembly start.X/foo.c  -------------------------
+1:                 //Bare minimum example
+2:                 
+3:                 #define FCY 4*7372800 		//instruction frequency in Hz
+4:                 
+5:                 #include <p30F4011.h>               //PIC device
+6:                 #include <libpic30.h>               //dsPIC30 library
+7:                 #include <xc.h>                     //Compiler
+8:                 
+9:                 
+10:                //Device configuration
+11:                _FOSC(CSW_FSCM_OFF & XT_PLL16); //oscillator at 16x PLL
+12:                _FWDT(WDT_OFF); //watchdog timer is off
+13:                
+14:                
+15:                extern int asmFunction(void);
+16:                extern unsigned int asmVariable;
+17:                unsigned int cVariable;
+18:                
+19:                int foo()
+20:                {
+00019E  FA0000     LNK #0x0
+21:                    asmFunction();
+0001A0  07000D     RCALL _asmFunction
+22:                    asmVariable = 0x1234;
+0001A2  212344     MOV #0x1234, W4
+0001A4  884014     MOV W4, _asmVariable
+23:                    return 0;
+0001A6  EB0200     CLR W4
+24:                }
+0001A8  780004     MOV W4, W0
+0001AA  FA8000     ULNK
+0001AC  060000     RETURN
