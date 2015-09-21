@@ -1,4 +1,11 @@
 ;turns LED on while pressing button
+    
+    .equ __30F4011, 1
+    .include "p30F4011.inc"
+
+    config __FOSC,(CSW_FSCM_OFF & XT_PLL16)	    ;oscilator at 16x cristal frequency
+    config __FWT,(WDT_OFF)			    ;watchdog timer off
+
     .text
     .global _main
 _main:
