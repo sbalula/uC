@@ -40,3 +40,9 @@
 *.bash
 *.properties
 Makefile
+/asm_button toggles LED.X/nbproject/private/
+/asm&C.X/nbproject/private/
+/C_start.X/nbproject/private/
+/asm_button toggles LED.X/dist/default/
+/asm_start.X/nbproject/private/
+/asm&C_start.X/nbproject/private/
